@@ -1,0 +1,39 @@
+
+-- Create a Clothing Store Database
+
+CREATE TABLE Clothing_Store (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, Colors TEXT, price INTEGER);
+
+INSERT INTO clothing_store VALUES (1, "T-shirts", 100, 8, 40);
+INSERT INTO clothing_store VALUES (2, "Shoes", 200, 12, 90);
+INSERT INTO clothing_store VALUES (3, "Backpacks", 30, 4, 50);
+INSERT INTO clothing_store VALUES (4, "Pants",100, 7, 120);
+INSERT INTO clothing_store VALUES (5, "Socks", 60, 15, 20);
+INSERT INTO clothing_store VALUES (6, "Jackets", 60, 15, 300);
+INSERT INTO clothing_store VALUES (7, "Shorts", 40, 15, 50);
+INSERT INTO clothing_store VALUES (8, "hoodies", 200, 15, 60);
+INSERT INTO clothing_store VALUES (9, "Slides", 50, 15, 40);
+INSERT INTO clothing_store VALUES (10, "Hats", 70, 15, 30);
+INSERT INTO clothing_store VALUES (11, "Glasses", 70, 15, 200);
+INSERT INTO clothing_store VALUES (12, "Fanny Packs", 40, 15, 45);
+INSERT INTO clothing_store VALUES (13, "Shirts", 150, 15, 90);
+INSERT INTO clothing_store VALUES (14, "Underwear", 50, 15, 40);
+INSERT INTO clothing_store VALUES (15, "Bracelets", 50, 15, 300);
+SELECT * FROM Clothing_Store;
+SELECT * FROM clothing_store WHERE ITEM >0 ORDER by price;
+SELECT item, SUM(price) FROM clothing_store group by item 
+
+--display the database ordered by price
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items in the clothing store? 
+SELECT AVG(price) "avg items price"
+FROM Clothing_store;
+
+
+--what are the 5 most expensive items? 
+SELECT item, price, 
+FROM Clothing_store
+order by priece desc
+limit 5; 
+
