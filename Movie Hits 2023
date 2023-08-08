@@ -1,0 +1,73 @@
+
+Create Table Movies_2023 (ID INTEGER PRIMARY KEY,
+    name TEXT,
+    genre TEXT, 
+    release_date INTEGER,
+    run_time INTEGER,
+    distributor TEXT,
+    director TEXT,
+    season TEXT,
+    rotten_tomatoes INTEGER,
+    budget INTEGER,
+    box_office INTEGER,
+    film_rating TEXT,
+    cast TEXT,
+    soundtrack TEXT,
+    plot TEXT,
+    franchise_or_series TEXT);
+    
+INSERT INTO Movies_2023 VALUES( 1, "Barbie", "fantasy, comedy", "July 21", 114, "Warner Bros Pictures", "Greta Gerwig", "summer", 88, 145, 824, "PG-13", "Margot Robbie", "Mark Ronson", "Barbie suffers a crisis that leads her to question her world and her existence.", "franchise");
+
+INSERT INTO Movies_2023 VALUES( 2, "The Super Mario Bros. Movie", "animation, comedy", "April 5", 92, "Universal Pictures", "Aaron Horvath, Michael Jelenic", "Spring", 59, 100, 1.355, "PG", "Chris Pratt", "Brian Tyler", "A plumber named Mario travels through an underground labyrinth with his brother, Luigi, trying to save a captured princess.", "franchise");
+INSERT INTO Movies_2023 VALUES( 3, "Ant-Man and the Wasp: Quantumania", "superhero, action, science fiction", "February 17", 124, "Walt Disney Studios Motion Pictures", "Peyton Reed", "winter", 46, 200, 476, "PG-13", "Paul Rudd", "Christophe Beck", "Scott Lang and Hope Van Dyne are dragged into the Quantum Realm, along with Hope's parents and Scott's daughter Cassie. Together they must find a way to escape, but what secrets is Hope's mother hiding? And who is the mysterious Kang?.", "series");
+
+INSERT INTO Movies_2023 VALUES( 4, "Spider-Man: Across the Spider-Verse", "animated, superhero", "May 30", 140, "Sony Pictures Animation", "Joaquim Dos Santos, Kemp Powers, Justin K. Thompson", "winter", 95, 100, 683, "PG", " Shameik Moore", "Daniel Pemberton", " Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.", "series");
+INSERT INTO Movies_2023 VALUES( 5, "Oppenheimer", "biopic, history, thriller", "July 21", 180, "Universal Pictures", "Christopher Nolan", "summer", 93, 100, 425, "R", "Cillian Murphy", "Ludwig Göransson", "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.", "N/A");
+INSERT INTO Movies_2023 VALUES( 6, "The Little Mermaid", "musical, romantic, fantasy", "May 8", 135, "Walt Disney Studios Motion Pictures", "Rob Marshall", "summer", 67, 250, 564, "PG-13", "Halle Bailey", "Alan Menken", "A young mermaid makes a deal with a sea witch to trade her beautiful voice for human legs so she can discover the world above water and impress a prince.", "Franchise");
+
+INSERT INTO Movies_2023 VALUES( 7, "Guardians of the Galaxy Vol. 3", "superhero, action", "May 5", 150, "Walt Disney Studios Motion Pictures", "James Gunn", "spring", 81, 250, 845, "PG-13", "Chris Pratt", "John Murphy", "Still reeling from the loss of Gamora, Peter Quill rallies his team to defend the universe and one of their own - a mission that could mean the end of the Guardians if not successful.", "series");
+
+INSERT INTO Movies_2023 VALUES( 8, "Sound of Freedom", "action, thriller, drama", "July 4", 131, " Angel Studios", "Alejandro Monteverde", "summer", 68, 14.5, 155, "PG-13", "Jim Caviezel", "Javier Navarrete", "The incredible true story of a former government agent turned vigilante who embarks on a dangerous mission to rescue hundreds of children from sex traffickers.", "N/A");
+
+INSERT INTO Movies_2023 VALUES( 9, "Elemental", "animation, comedy, adventure", "June 16", 103, " Walt Disnet Studios Motion Pictures", "Peter Sohn", "summer", 73, 200, 398, "PG", "Leah Lewis", "Thomas Newman", "Follows Ember and Wade, in a city where fire, water, land and air residents live together.", "franchise");
+
+INSERT INTO Movies_2023 VALUES( 10, "Fast X", "action", "May 19", 141, " Universal Pictures", " Louis Leterrier", "summer", 57, 340, 719, "PG-13", " Vin Diesel", "Brian Tyler", "Dom Toretto and his family are targeted by the vengeful son of drug kingpin Hernan Reyes.", "franchise");
+
+
+
+/* What movies are either in the comedy or action genre? */
+
+SELECT movie AS Fave_movie_genre FROM Movies_2023 Where genre= "comedy" OR genre = "action" ;
+
+/* What movies are released during the summer and have rotten tomatoes higher than 70 percent? */
+
+SELECT movie AS movie_date FROM Movies_2023 WHERE season = "summer" AND rotten_tomatoes > 70  ;
+
+/* Create a table of movies that have made more than 200 million dollars in revenue*/
+
+SELECT movie, SUM( box_office - budget ) AS Movie_revenue FROM movies_2023 
+GROUP BY movie 
+HAVING Movie_revenue > 200
+;
+
+/* What is the average movies have made at the box office in total in 2023. Which one is the max and min? */
+
+SELECT ID, AVG(box_office) As AVG_box_office_2023 FROM movies_2023;
+
+SELECT movie, MIN(box_office) AS Min_box_office_2023 FROM movies_2023; 
+
+SELECT movie, MAX(box_office) AS Max_box_office_2023 FROM movies_2023;
+
+
+/* Create a table that shows the number of movies that made a billion dollars as "hits" and the rest as "flop" */
+
+SELECT count(*),
+CASE
+           WHEN box_office > 1000 THEN "HIT"
+           ELSE "FLOP"
+         END AS "BILLION_CLUB"
+From  MOVIES_2023
+GROUP BY BILLION_CLUB;
+SELECT * FROM MOVIES_2023;
+
+
