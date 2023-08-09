@@ -1,0 +1,20 @@
+/* CREATE a table to store the data.
+INSERT a few example rows in the table.
+Use an UPDATE to emulate what happens when you edit data in the app.
+Use a DELETE to emulate what happens when you delete data in the app. */
+
+CREATE table Jefs_App (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    user TEXT,
+    content TEXT);
+    
+INSERT INTO Jefs_App (user, title, content) VALUES( "jef_riera99","picture","Hanging out with friends");
+INSERT INTO Jefs_App (user, title, content) VALUES( "OHARA200","video","swimming with sharks!!!");
+INSERT INTO Jefs_App (user, title, content) VALUES( "chayenne_lolo","picture","riding a horse in Malibu");
+INSERT INTO Jefs_App (user, title, content) VALUES( "mike_and_karen","video","Mexico is bigger than you think");
+INSERT INTO Jefs_App (user, title, content) VALUES( "Drew","picture","Ilinniois with the bestie");
+
+UPDATE Jefs_App SET user = "jeff_riera"
+WHERE ID = 1;
+SELECT * FROM Jefs_App;
