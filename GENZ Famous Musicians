@@ -1,0 +1,57 @@
+CREATE TABLE GENZ_Famous_musicians (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER);
+    
+INSERT INTO GENZ_Famous_musicians (id, name, age) VALUES (1, "Ice Spice", 23);
+INSERT INTO GENZ_Famous_musicians (id, name, age) VALUES (2, "Billie Eilish", 21);
+INSERT INTO GENZ_Famous_musicians (id, name, age) VALUES (3, "Jack Harlow", 25);
+INSERT INTO GENZ_Famous_musicians (id, name, age) VALUES (4, "Khalid", 25);
+INSERT INTO GENZ_Famous_musicians (id, name, age) VALUES (5, "Olivia Rodrigo", 20);
+
+CREATE table Most_famous_songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO Most_famous_songs (person_id, name) VALUES (1, "liar");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (2, "Bad Guy");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (2, "Ocean Eyers");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (2, "My Future");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (3, "First Class");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (3, "What's Poppin");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (3, "Industry Baby");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (4, "Young, Dumb & Broke");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (4, "Location");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (4, "Better");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (5, "Driver's License");
+INSERT INTO Most_famous_songs (person_id, name) VALUES (5, "Good 4 You");
+
+CREATE table Instagram_followers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    followers_number Integer);
+    
+INSERT INTO Instagram_followers (person_id, followers_number) VALUES (1, "9.1");
+INSERT INTO Instagram_followers (person_id, followers_number) VALUES (2, "109");
+INSERT INTO Instagram_followers (person_id, followers_number) VALUES (3, "6.7");
+INSERT INTO Instagram_followers (person_id, followers_number) VALUES (4, "7.3");
+INSERT INTO Instagram_followers (person_id, followers_number) VALUES (5, "32.9");
+
+/*Select the 2 tables "GENZ Famous Musicians" and "Most Famous Songs" with a join so that you can see each musicians's name next to their most famous songs*/
+
+SELECT GENZ_Famous_musicians.name, Most_famous_songs.name FROM GENZ_Famous_musicians
+JOIN Most_famous_songs
+ON GENZ_Famous_musicians.id = Most_famous_songs.person_id;
+
+/*Select the 2 tables "GENZ Famous Musicians" and "Instagram Followers" with a join so that you can see each musicians's name next to their instagram followers*/
+
+SELECT GENZ_Famous_musicians.name, instagram_followers.followers_number FROM GENZ_Famous_musicians
+JOIN instagram_followers
+ON GENZ_Famous_musicians.id = Instagram_followers.person_id;
+
+
+
+
+
+
